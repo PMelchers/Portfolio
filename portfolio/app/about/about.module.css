@@ -1,0 +1,206 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+/* About Section */
+.aboutSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.profileColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImageContainer {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.profileImage {
+  object-fit: cover;
+}
+
+.profileInfo {
+  text-align: center;
+}
+
+.name {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.jobTitle {
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+}
+
+.downloadIcon {
+  margin-right: 0.5rem;
+}
+
+.bioColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.bioText {
+  color: var(--color-text-muted);
+}
+
+.bioText p {
+  margin-bottom: 1rem;
+}
+
+/* Skills Section */
+.skillsSection {
+  margin-bottom: 4rem;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.skillCard {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.skillCategory {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.skillList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skillItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-muted);
+}
+
+.skillDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+/* Experience and Education Sections */
+.experienceSection,
+.educationSection {
+  margin-bottom: 4rem;
+}
+
+.timelineContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timelineItem {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.timelineItem::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.timelineHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.timelineTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.timelinePeriod {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
+.timelineCompany {
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.timelineDescription {
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .timelineHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .aboutSection {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .profileColumn {
+    position: sticky;
+    top: 2rem;
+    align-self: start;
+  }
+
+  .skillsGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
