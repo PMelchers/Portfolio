@@ -11,9 +11,10 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.profileImageContainer}>
           <Image
-            src="/placeholder.svg?height=400&width=400"
+            src="/images/CV-foto.jpg"
             alt="Pim Melchers"
             fill
+            sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
             className={styles.profileImage}
             priority
           />
@@ -73,11 +74,11 @@ export default function Home() {
         <div className={styles.sectionContainer}>
           <h2 className={styles.sectionTitle}>Get In Touch</h2>
           <p className={styles.contactText}>
-            Interested in working together? Feel free to reach out through any of the channels below.
+            Are you interested in my skills, contact me!.
           </p>
           <div className={styles.socialLinks}>
             <Button variant="outline" size="icon" asChild>
-              <Link href="mailto:contact@pimmelchers.com">
+              <Link href="mailto:pimmelchers1@gmail.com">
                 <span className="sr-only">Email</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +97,7 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://github.com/pimmelchers" target="_blank" rel="noopener noreferrer">
+              <Link href="https://github.com/PMelchers" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">GitHub</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +116,7 @@ export default function Home() {
               </Link>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <Link href="https://linkedin.com/in/pimmelchers" target="_blank" rel="noopener noreferrer">
+              <Link href="https://www.linkedin.com/in/pim-melchers-490577242/" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">LinkedIn</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

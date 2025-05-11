@@ -5,50 +5,30 @@ import styles from "./about.module.css"
 export default function AboutPage() {
   // Skills data
   const skills = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "HTML/CSS", "CSS Modules", "Framer Motion"] },
-    { category: "Backend", items: ["Node.js", "Express", "Python", "Django", "RESTful APIs", "GraphQL"] },
-    { category: "Database", items: ["MongoDB", "PostgreSQL", "MySQL", "Firebase", "Supabase"] },
-    { category: "Tools", items: ["Git", "Docker", "AWS", "Vercel", "Figma", "Adobe Creative Suite"] },
+    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "HTML/CSS", "Vue"] },
+    { category: "Backend", items: ["Node.js", ".NET Core", "Laravel", "Firebase", "PHP"] },
+    { category: "Database", items: ["MySQL", "Firebase"] },
+    { category: "Tools", items: ["Git", "Docker", "Vercel", "Figma"] },
   ]
 
   // Experience data
   const experiences = [
     {
-      title: "Senior Frontend Developer",
-      company: "Tech Innovations Inc.",
-      period: "2021 - Present",
+      title: "Engineer Support",
+      company: "Royal SMIT Transformers",
+      period: "2024 - 2025",
       description:
-        "Lead the frontend development team in building responsive and accessible web applications. Implemented modern React patterns and optimized performance across multiple projects.",
-    },
-    {
-      title: "Web Developer",
-      company: "Digital Solutions Agency",
-      period: "2018 - 2021",
-      description:
-        "Developed and maintained client websites and web applications. Collaborated with designers and backend developers to deliver high-quality products on time and within budget.",
-    },
-    {
-      title: "Junior Developer",
-      company: "StartUp Ventures",
-      period: "2016 - 2018",
-      description:
-        "Assisted in the development of web applications and websites. Gained experience in frontend technologies and agile development methodologies.",
+        "Assisted in the development of a web application for managing users. Gained experience in frontend technologies and agile development. Worked closely with the engineering team to understand user needs and translate them into technical requirements.",
     },
   ]
 
   // Education data
   const education = [
     {
-      degree: "Master of Computer Science",
-      institution: "University of Technology",
-      period: "2014 - 2016",
-      description: "Specialized in Web Technologies and Human-Computer Interaction.",
-    },
-    {
-      degree: "Bachelor of Science in Information Technology",
-      institution: "State University",
-      period: "2010 - 2014",
-      description: "Graduated with honors. Focused on software development and database management.",
+      degree: "Software Engineering",
+      institution: "ROC Nijmegen",
+      period: "2023 - Now",
+      description: "Currently pursuing a degree in Software Engineering, focusing on web development and software design principles. Gained hands-on experience in various programming languages and frameworks.",
     },
   ]
 
@@ -59,17 +39,19 @@ export default function AboutPage() {
         <div className={styles.profileColumn}>
           <div className={styles.profileImageContainer}>
             <Image
-              src="/placeholder.svg?height=600&width=600&text=Pim+Melchers"
-              alt="Pim Melchers"
-              fill
-              className={styles.profileImage}
-            />
+            src="/images/CV-Groot.jpg"
+            alt="Pim Melchers"
+            fill
+            sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
+            className={styles.profileImage}
+            priority
+          />
           </div>
           <div className={styles.profileInfo}>
             <h1 className={styles.name}>Pim Melchers</h1>
             <p className={styles.jobTitle}>Frontend Developer & Designer</p>
             <Button asChild>
-              <a href="/resume.pdf" download className={styles.downloadButton}>
+              <a href="/CV/CV-Pim.pdf" download className={styles.downloadButton}>
                 <svg
                   className={styles.downloadIcon}
                   xmlns="http://www.w3.org/2000/svg"

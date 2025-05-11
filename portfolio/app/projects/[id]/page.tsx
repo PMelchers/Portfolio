@@ -32,7 +32,7 @@ const getProjectData = (id: string) => {
         "/placeholder.svg?height=600&width=800&text=E-commerce+Screenshot+2",
         "/placeholder.svg?height=600&width=800&text=E-commerce+Screenshot+3",
       ],
-      videoUrl: "https://example.com/videos/ecommerce-demo.mp4", // This would be a real video URL
+      videoUrl: "/videos/voorbeeld.mp4",
       liveUrl: "https://ecommerce-example.com",
       githubUrl: "https://github.com/pimmelchers/ecommerce-platform",
       year: 2023,
@@ -58,7 +58,111 @@ const getProjectData = (id: string) => {
         "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
         "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
       ],
-      videoUrl: "https://example.com/videos/portfolio-demo.mp4", // This would be a real video URL
+      videoUrl: "/videos/voorbeeld.mp4",
+      liveUrl: "https://portfolio-example.com",
+      githubUrl: "https://github.com/pimmelchers/portfolio-website",
+      year: 2022,
+    },
+    "3": {
+      id: 3,
+      title: "Portfolio Website",
+      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      longDescription: `
+        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
+        The site features smooth animations, responsive design, and optimized performance.
+        
+        The portfolio includes:
+        - Project showcase with detailed case studies
+        - Interactive gallery with filtering options
+        - Contact form with validation
+        - Blog section for sharing insights
+        - Resume and skills presentation
+        - Dark/light mode toggle
+      `,
+      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      images: [
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+      ],
+      videoUrl: "/videos/voorbeeld.mp4",
+      liveUrl: "https://portfolio-example.com",
+      githubUrl: "https://github.com/pimmelchers/portfolio-website",
+      year: 2022,
+    },
+    "4": {
+      id: 4,
+      title: "Portfolio Website",
+      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      longDescription: `
+        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
+        The site features smooth animations, responsive design, and optimized performance.
+        
+        The portfolio includes:
+        - Project showcase with detailed case studies
+        - Interactive gallery with filtering options
+        - Contact form with validation
+        - Blog section for sharing insights
+        - Resume and skills presentation
+        - Dark/light mode toggle
+      `,
+      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      images: [
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+      ],
+      videoUrl: "/videos/voorbeeld.mp4",
+      liveUrl: "https://portfolio-example.com",
+      githubUrl: "https://github.com/pimmelchers/portfolio-website",
+      year: 2022,
+    },
+    "5": {
+      id: 5,
+      title: "Portfolio Website",
+      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      longDescription: `
+        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
+        The site features smooth animations, responsive design, and optimized performance.
+        
+        The portfolio includes:
+        - Project showcase with detailed case studies
+        - Interactive gallery with filtering options
+        - Contact form with validation
+        - Blog section for sharing insights
+        - Resume and skills presentation
+        - Dark/light mode toggle
+      `,
+      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      images: [
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+      ],
+      videoUrl: "/videos/voorbeeld.mp4",
+      liveUrl: "https://portfolio-example.com",
+      githubUrl: "https://github.com/pimmelchers/portfolio-website",
+      year: 2022,
+    },
+    "6": {
+      id: 6,
+      title: "Portfolio Website",
+      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      longDescription: `
+        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
+        The site features smooth animations, responsive design, and optimized performance.
+        
+        The portfolio includes:
+        - Project showcase with detailed case studies
+        - Interactive gallery with filtering options
+        - Contact form with validation
+        - Blog section for sharing insights
+        - Resume and skills presentation
+        - Dark/light mode toggle
+      `,
+      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      images: [
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
+        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+      ],
+      videoUrl: "/videos/voorbeeld.mp4",
       liveUrl: "https://portfolio-example.com",
       githubUrl: "https://github.com/pimmelchers/portfolio-website",
       year: 2022,
