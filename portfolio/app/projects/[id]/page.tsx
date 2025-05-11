@@ -9,87 +9,87 @@ const getProjectData = (id: string) => {
   const projects = {
     "1": {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-featured online store with product management, cart functionality, and payment processing.",
+      title: "Crpypto Currency Dashboard",
+      description: "A dashboard for tracking cryptocurrency prices and market trends.",
       longDescription: `
-        This e-commerce platform provides businesses with a complete solution for selling products online. 
-        The application features a responsive design, product catalog with filtering and search capabilities, 
-        shopping cart functionality, secure checkout process, and an admin dashboard for managing products, 
-        orders, and customers.
+        This project is a cryptocurrency dashboard that provides real-time data on various cryptocurrencies.
+        Users can view price trends, market capitalization, and other relevant statistics. The dashboard is built using React and Vite for fast performance and a smooth user experience.
         
         Key features include:
-        - User authentication and account management
-        - Product catalog with categories and search
-        - Shopping cart and wishlist functionality
-        - Secure payment processing with Stripe
-        - Order tracking and history
-        - Admin dashboard for inventory management
-        - Analytics and reporting tools
+        - Real-time price updates
+        - Interactive charts and graphs using Chart.js
+        - User-friendly interface with responsive design
+        - Search functionality for specific cryptocurrencies
+        - Historical data analysis
+        - Integration with CoinGecko API for accurate data
+        - Favorites feature to track preferred cryptocurrencies
       `,
-      technologies: ["React", "Next.js", "CSS Modules", "Stripe", "PostgreSQL"],
+      technologies: ["React", "Vite", "Tailwind CSS", "Chart.js"],
       images: [
-        "/placeholder.svg?height=600&width=800&text=E-commerce+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=E-commerce+Screenshot+2",
-        "/placeholder.svg?height=600&width=800&text=E-commerce+Screenshot+3",
+        "/images/Crypto-image-1.jpg",
+        "/images/Crypto-image-2.jpg",
+        "/images/Crypto-image-3.jpg",
       ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://ecommerce-example.com",
-      githubUrl: "https://github.com/pimmelchers/ecommerce-platform",
-      year: 2023,
+      videoUrl: "/videos/Crypto-video.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/PMelchers/FrontEndCrypto",
+      year: 2025,
     },
     "2": {
       id: 2,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      title: "Wand Plugin Minecraft",
+      description: "A Minecraft plugin for creating custom spells and abilities using a wand.",
       longDescription: `
-        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
-        The site features smooth animations, responsive design, and optimized performance.
+        This project is a Minecraft plugin that allows players to create custom spells and abilities using a wand.
+        The plugin is built using Java and the Spigot API, providing a robust framework for Minecraft server development.
         
         The portfolio includes:
-        - Project showcase with detailed case studies
-        - Interactive gallery with filtering options
-        - Contact form with validation
-        - Blog section for sharing insights
-        - Resume and skills presentation
-        - Dark/light mode toggle
+        - Custom spell creation with a user-friendly interface
+        - Integration with Minecraft's existing mechanics
+        - Support for multiple spells and abilities
+        - Configuration options for server administrators
+        - Extensive documentation for developers
       `,
-      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      technologies: ["Java", "Maven", "Spigot API"],
       images: [
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+        "/images/Wand-image-1.png",
+        "/images/Wand-image-2.png",
+        "/images/Wand-image-3.jpg",
       ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://portfolio-example.com",
-      githubUrl: "https://github.com/pimmelchers/portfolio-website",
-      year: 2022,
+      videoUrl: "/videos/Wand-video.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/PMelchers/Wandplugin",
+      year: 2025,
     },
     "3": {
       id: 3,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing creative work and professional experience.",
+      title: "Social Media Platform",
+      description: "A social media platform for sharing skills and connecting with others.",
       longDescription: `
-        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
-        The site features smooth animations, responsive design, and optimized performance.
+        This project is a social media platform designed to connect users based on their skills and interests.
+        Users can create profiles, share their skills, and connect with others in the community. The platform is built using React and Firebase for real-time data synchronization.
         
         The portfolio includes:
-        - Project showcase with detailed case studies
-        - Interactive gallery with filtering options
-        - Contact form with validation
-        - Blog section for sharing insights
-        - Resume and skills presentation
-        - Dark/light mode toggle
+        - User profiles with skill showcases
+        - Real-time chat functionality
+        - Post creation and sharing
+        - Commenting and liking system
+        - Search functionality for users and skills
+        - Responsive design for mobile and desktop
+        - Integration with Firebase for authentication and data storage
       `,
-      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
+      technologies: ["React", "JavaScript", "Vite", "Firebase"],
       images: [
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
+        "/images/Skillrr-image-1.jpg",
+        "/images/Skillrr-image-2.jpg",
+        "/images/Skillrr-image-3.jpg",
       ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://portfolio-example.com",
-      githubUrl: "https://github.com/pimmelchers/portfolio-website",
-      year: 2022,
+      videoUrl: "/videos/Coming-soon.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/Roexoe/Frontedge2",
+      year: 2025,
     },
-    "4": {
+    /*"4": {
       id: 4,
       title: "Portfolio Website",
       description: "A responsive portfolio website showcasing creative work and professional experience.",
@@ -167,6 +167,7 @@ const getProjectData = (id: string) => {
       githubUrl: "https://github.com/pimmelchers/portfolio-website",
       year: 2022,
     },
+    */
     // Add more projects as needed
   }
 

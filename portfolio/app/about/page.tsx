@@ -51,7 +51,7 @@ export default function AboutPage() {
             <h1 className={styles.name}>Pim Melchers</h1>
             <p className={styles.jobTitle}>Frontend Developer & Designer</p>
             <Button asChild>
-              <a href="/CV/CV-Pim.pdf" download className={styles.downloadButton}>
+              <a href="/CV/CV-Pim-2.pdf" download className={styles.downloadButton}>
                 <svg
                   className={styles.downloadIcon}
                   xmlns="http://www.w3.org/2000/svg"
@@ -78,23 +78,22 @@ export default function AboutPage() {
           <h2 className={styles.sectionTitle}>About Me</h2>
           <div className={styles.bioText}>
             <p>
-              Hello! I'm Pim Melchers, a passionate frontend developer and designer with over 5 years of experience
-              creating engaging digital experiences. I specialize in building modern, responsive, and accessible web
-              applications using React and Next.js.
+              Hello! I'm Pim Melchers, a passionate frontend developer with a keen eye for design and a love for
+              creating engaging user experiences. I specialize in building responsive and interactive web applications
             </p>
             <p>
-              My journey in web development began during my university years, where I discovered my passion for creating
-              intuitive user interfaces. Since then, I've worked with various companies and clients, helping them bring
-              their digital visions to life.
+              I have a strong foundation in modern web technologies, including React, Next.js, and TypeScript. My
+              journey in software development has been driven by a desire to solve real-world problems and make a
+              positive impact through technology.
             </p>
             <p>
-              I believe in the power of clean, well-structured code and thoughtful design to create exceptional user
-              experiences. My approach combines technical expertise with creative problem-solving to deliver solutions
-              that not only look great but also perform excellently.
+              I thrive in collaborative environments and enjoy working closely with designers and developers to bring
+              ideas to life. My goal is to create seamless and intuitive interfaces that enhance user satisfaction and
+              drive engagement.
             </p>
             <p>
-              When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or
-              enjoying outdoor activities like hiking and photography.
+              When I'm not coding, you can find me playing volleybal and play games. I'm always eager to learn and grow, and I'm excited about the opportunities
+              that lie ahead in my career.
             </p>
           </div>
         </div>

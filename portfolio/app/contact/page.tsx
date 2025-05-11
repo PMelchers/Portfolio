@@ -43,112 +43,13 @@ export default function ContactPage() {
       <div className={styles.header}>
         <h1 className={styles.title}>Get In Touch</h1>
         <p className={styles.subtitle}>
-          Have a project in mind or want to collaborate? Feel free to reach out through the form below or using my
+          Have a project in mind? Feel free to reach out through the form below or using my
           contact information.
         </p>
       </div>
 
       <div className={styles.content}>
-        {/* Contact Form */}
-        <div className={styles.formContainer}>
-          {submitSuccess ? (
-            <div className={styles.successMessage}>
-              <div className={styles.successIcon}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m22 2-7 20-4-9-9-4Z" />
-                  <path d="M22 2 11 13" />
-                </svg>
-              </div>
-              <h3 className={styles.successTitle}>Message Sent!</h3>
-              <p className={styles.successText}>
-                Thank you for reaching out. I'll get back to you as soon as possible.
-              </p>
-              <button onClick={() => setSubmitSuccess(false)} className={styles.sendAnother}>
-                Send Another Message
-              </button>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name" className={styles.label}>
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your name"
-                  required
-                  className={styles.input}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="email" className={styles.label}>
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your email address"
-                  required
-                  className={styles.input}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="subject" className={styles.label}>
-                  Subject
-                </label>
-                <input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder="What is this regarding?"
-                  required
-                  className={styles.input}
-                />
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="message" className={styles.label}>
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your message"
-                  rows={6}
-                  required
-                  className={styles.textarea}
-                />
-              </div>
-
-              {submitError && <div className={styles.errorMessage}>{submitError}</div>}
-
-              <button type="submit" className={styles.submitButton} disabled={isSubmitting}>
-                {isSubmitting ? "Sending..." : "Send Message"}
-              </button>
-            </form>
-          )}
-        </div>
+        
 
         {/* Contact Information */}
         <div className={styles.contactInfo}>
@@ -174,9 +75,9 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className={styles.infoLabel}>Email</h3>
-                  <a href="mailto:contact@pimmelchers.com" className={styles.infoValue}>
-                    contact@pimmelchers.com
-                  </a>
+                  <div className={styles.infoValue}>
+                    pimmelchers1@gmail.com
+                  </div>
                 </div>
               </div>
 
@@ -198,8 +99,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className={styles.infoLabel}>Phone</h3>
-                  <a href="tel:+31612345678" className={styles.infoValue}>
-                    +31 6 12345678
+                  <a href="tel:+31651737426" className={styles.infoValue}>
+                    +31 6 517 374 26
                   </a>
                 </div>
               </div>
@@ -223,23 +124,23 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className={styles.infoLabel}>Location</h3>
-                  <p className={styles.infoValue}>Amsterdam, The Netherlands</p>
+                  <p className={styles.infoValue}>Huissen, The Netherlands</p>
                 </div>
               </div>
             </div>
           </div>
-
           <div className={styles.availability}>
             <h2 className={styles.infoTitle}>Availability</h2>
             <p className={styles.availabilityText}>
-              I'm currently available for freelance work and interesting projects. My typical response time is within 24
+              I'm currently looking for an internship. My typical response time is within 24
               hours.
             </p>
             <div className={styles.workingHours}>
-              <h3 className={styles.workingHoursTitle}>Working Hours</h3>
-              <p className={styles.workingHoursText}>Monday - Friday: 9:00 AM - 6:00 PM CET</p>
+              <h3 className={styles.workingHoursTitle}>Available Hours</h3>
+              <p className={styles.workingHoursText}>Monday - Friday: 8:00 AM - 5:00 PM CET</p>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
