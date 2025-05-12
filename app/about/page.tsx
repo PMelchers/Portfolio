@@ -3,7 +3,7 @@ import { Button } from "../components/ui/button"
 import styles from "./about.module.css"
 
 export default function AboutPage() {
-  // Skills data
+  // Skills dataset
   const skills = [
     { category: "Frontend", items: ["React", "Next.js", "TypeScript", "HTML/CSS", "Vue"] },
     { category: "Backend", items: ["Node.js", ".NET Core", "Laravel", "Firebase", "PHP"] },

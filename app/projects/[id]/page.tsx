@@ -139,7 +139,7 @@ export default async function ProjectPage({ params }: { params: { id: string } }
       {/* Main project image/video */}
       <div className={styles.mainMedia}>
         {project.videoUrl ? (
-          <VideoPlayer videoUrl={project.videoUrl} />
+          <VideoPlayer videoUrl={project.videoUrl} autoplay />
         ) : (
           <div className={styles.mainImageContainer}>
             <Image
