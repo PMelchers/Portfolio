@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Button } from "../../components/ui/button"
 import { VideoPlayer } from "../../components/video-player"
 import styles from "./project-detail.module.css"
+import { notFound } from "next/navigation"
 
 // This would typically come from a database or CMS
 const getProjectData = (id: string) => {
@@ -25,11 +26,7 @@ const getProjectData = (id: string) => {
         - Favorites feature to track preferred cryptocurrencies
       `,
       technologies: ["React", "Vite", "Tailwind CSS", "Chart.js"],
-      images: [
-        "/images/Crypto-image-1.jpg",
-        "/images/Crypto-image-2.jpg",
-        "/images/Crypto-image-3.jpg",
-      ],
+      images: ["/images/Crypto-image-1.jpg", "/images/Crypto-image-2.jpg", "/images/Crypto-image-3.jpg"],
       videoUrl: "/videos/Crypto-video.mp4",
       liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/PMelchers/FrontEndCrypto",
@@ -51,11 +48,7 @@ const getProjectData = (id: string) => {
         - Extensive documentation for developers
       `,
       technologies: ["Java", "Maven", "Spigot API"],
-      images: [
-        "/images/Wand-image-1.png",
-        "/images/Wand-image-2.png",
-        "/images/Wand-image-3.jpg",
-      ],
+      images: ["/images/Wand-image-1.png", "/images/Wand-image-2.png", "/images/Wand-image-3.jpg"],
       videoUrl: "/videos/Wand-video.mp4",
       liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/PMelchers/Wandplugin",
@@ -79,139 +72,29 @@ const getProjectData = (id: string) => {
         - Integration with Firebase for authentication and data storage
       `,
       technologies: ["React", "JavaScript", "Vite", "Firebase"],
-      images: [
-        "/images/Skillrr-image-1.jpg",
-        "/images/Skillrr-image-2.jpg",
-        "/images/Skillrr-image-3.jpg",
-      ],
+      images: ["/images/Skillrr-image-1.jpg", "/images/Skillrr-image-2.jpg", "/images/Skillrr-image-3.jpg"],
       videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/Roexoe/Frontedge2",
       year: 2025,
     },
-    /*"4": {
-      id: 4,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing creative work and professional experience.",
-      longDescription: `
-        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
-        The site features smooth animations, responsive design, and optimized performance.
-        
-        The portfolio includes:
-        - Project showcase with detailed case studies
-        - Interactive gallery with filtering options
-        - Contact form with validation
-        - Blog section for sharing insights
-        - Resume and skills presentation
-        - Dark/light mode toggle
-      `,
-      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
-      images: [
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
-      ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://portfolio-example.com",
-      githubUrl: "https://github.com/pimmelchers/portfolio-website",
-      year: 2022,
-    },
-    "5": {
-      id: 5,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing creative work and professional experience.",
-      longDescription: `
-        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
-        The site features smooth animations, responsive design, and optimized performance.
-        
-        The portfolio includes:
-        - Project showcase with detailed case studies
-        - Interactive gallery with filtering options
-        - Contact form with validation
-        - Blog section for sharing insights
-        - Resume and skills presentation
-        - Dark/light mode toggle
-      `,
-      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
-      images: [
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
-      ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://portfolio-example.com",
-      githubUrl: "https://github.com/pimmelchers/portfolio-website",
-      year: 2022,
-    },
-    "6": {
-      id: 6,
-      title: "Portfolio Website",
-      description: "A responsive portfolio website showcasing creative work and professional experience.",
-      longDescription: `
-        This portfolio website was designed to showcase creative work in an elegant and interactive way. 
-        The site features smooth animations, responsive design, and optimized performance.
-        
-        The portfolio includes:
-        - Project showcase with detailed case studies
-        - Interactive gallery with filtering options
-        - Contact form with validation
-        - Blog section for sharing insights
-        - Resume and skills presentation
-        - Dark/light mode toggle
-      `,
-      technologies: ["React", "Framer Motion", "CSS Modules", "Next.js"],
-      images: [
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+1",
-        "/placeholder.svg?height=600&width=800&text=Portfolio+Screenshot+2",
-      ],
-      videoUrl: "/videos/voorbeeld.mp4",
-      liveUrl: "https://portfolio-example.com",
-      githubUrl: "https://github.com/pimmelchers/portfolio-website",
-      year: 2022,
-    },
-    */
     // Add more projects as needed
   }
 
   return projects[id as keyof typeof projects]
 }
 
+// Generate static params for static generation
 export async function generateStaticParams() {
-  return [
-    { id: "1" },
-    { id: "2" },
-    { id: "3" },
-  ];
+  return [{ id: "1" }, { id: "2" }, { id: "3" }]
 }
 
-export default function ProjectPage({ params }: { params: { id: string } }) {
+// Make the component async to match Next.js 15's expectations
+export default async function ProjectPage({ params }: { params: { id: string } }) {
   const project = getProjectData(params.id)
 
   if (!project) {
-    return (
-      <div className={styles.notFound}>
-        <h1 className={styles.notFoundTitle}>Project Not Found</h1>
-        <p className={styles.notFoundText}>The project you're looking for doesn't exist or has been removed.</p>
-        <Button asChild>
-          <Link href="/projects">
-            <svg
-              className={styles.backIcon}
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m12 19-7-7 7-7" />
-              <path d="M19 12H5" />
-            </svg>
-            Back to Projects
-          </Link>
-        </Button>
-      </div>
-    )
+    notFound()
   }
 
   return (
