@@ -12,25 +12,8 @@ export default function Footer() {
           </div>
 
           <div className={styles.socialLinks}>
-            <Link href="mailto:contact@pimmelchers.com" className={styles.socialLink}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-              </svg>
-              <span className="sr-only">Email</span>
-            </Link>
             <Link
-              href="https://github.com/pimmelchers"
+              href="https://github.com/pmmelchers"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
@@ -52,7 +35,7 @@ export default function Footer() {
               <span className="sr-only">GitHub</span>
             </Link>
             <Link
-              href="https://linkedin.com/in/pimmelchers"
+              href="https://www.linkedin.com/in/pim-melchers-490577242/"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
