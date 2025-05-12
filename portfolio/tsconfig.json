@@ -23,7 +23,7 @@
     ],
     "paths": {
       "@/*": [
-        "./*"
+        "./portfolio/*"
       ]
     },
     "target": "ES2017"
@@ -33,7 +33,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "next.config.mjs"  ],
   "exclude": [
     "node_modules"
   ]
