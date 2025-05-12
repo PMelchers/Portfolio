@@ -31,7 +31,7 @@ const getProjectData = (id: string) => {
         "/images/Crypto-image-3.jpg",
       ],
       videoUrl: "/videos/Crypto-video.mp4",
-      liveUrl: "",
+      liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/PMelchers/FrontEndCrypto",
       year: 2025,
     },
@@ -57,7 +57,7 @@ const getProjectData = (id: string) => {
         "/images/Wand-image-3.jpg",
       ],
       videoUrl: "/videos/Wand-video.mp4",
-      liveUrl: "",
+      liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/PMelchers/Wandplugin",
       year: 2025,
     },
@@ -85,7 +85,7 @@ const getProjectData = (id: string) => {
         "/images/Skillrr-image-3.jpg",
       ],
       videoUrl: "/videos/Coming-soon.mp4",
-      liveUrl: "",
+      liveUrl: "/videos/Coming-soon.mp4",
       githubUrl: "https://github.com/Roexoe/Frontedge2",
       year: 2025,
     },
@@ -172,6 +172,14 @@ const getProjectData = (id: string) => {
   }
 
   return projects[id as keyof typeof projects]
+}
+
+export async function generateStaticParams() {
+  return [
+    { id: "1" },
+    { id: "2" },
+    { id: "3" },
+  ];
 }
 
 export default function ProjectPage({ params }: { params: { id: string } }) {
