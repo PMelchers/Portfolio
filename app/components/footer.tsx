@@ -13,7 +13,7 @@ export default function Footer() {
 
           <div className={styles.socialLinks}>
             <Link
-              href="https://github.com/pmmelchers"
+              href="https://github.com/pmelchers"
               target="_blank"
               rel="noopener noreferrer"
               className={styles.socialLink}
