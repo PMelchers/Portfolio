@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* Particle Background */}
         <div className="particle-container">
-          {Array.from({ length: 50 }).map((_, index) => (
+          {Array.from({ length: 100 }).map((_, index) => (
             <div
               key={index}
               className="particle"

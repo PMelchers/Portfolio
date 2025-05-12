@@ -60,7 +60,7 @@
 /* Featured Projects Section */
 .featuredProjects {
   padding: 4rem 1rem;
-  background-color: var(--color-bg-muted);
+  background-color: var(--color-bg-secondary);
 }
 
 .sectionContainer {
