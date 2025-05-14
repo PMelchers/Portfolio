@@ -13,7 +13,7 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.profileImageContainer}>
           <Image
-            src="/images/CV-groot.jpg"
+            src="/images/CV-foto.jpg"
             alt="Pim Melchers"
             fill
             sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
