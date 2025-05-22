@@ -34,7 +34,7 @@ export const projects = [
     title: "HOI4 Discord Bot",
     description: "A Discord bot for managing Hearts of Iron IV multiplayer games and player assignments.",
     /*technologies: ["Python", "discord.py", "JSON"],*/
-    image: "/images/Discordbot-image-1.jpg",
+    image: "/images/Discordbot-image-2.jpg",
   },
   {
     id: 6,
