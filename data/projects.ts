@@ -22,23 +22,25 @@ export const projects = [
   },
   {
     id: 4,
-    title: "#SOON",
-    description: "More information coming soon! A Web application for playing Wordle.",
-    /*technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],*/
-    image: "/images/Coming-soon-image.jpg",
+    title: "Kingdom Dashboard & Minecraft Integration",
+    description: "A full-stack web dashboard and Minecraft plugin system for managing kingdoms, players, stats, and ranks with real-time server integration.",
+    /*technologies: [
+      "React", "Axios", "CSS", "Node.js", "Express", "MongoDB", "Java", "Bukkit/Spigot API", "REST API"
+    ],*/
+    image: "/images/KingdomDashboard-1.jpg",
   },
   {
     id: 5,
-    title: "#SOON",
-    description: "More information coming soon!",
-    /*technologies: ["",],*/
-    image: "/images/Coming-soon-image.jpg",
+    title: "HOI4 Discord Bot",
+    description: "A Discord bot for managing Hearts of Iron IV multiplayer games and player assignments.",
+    /*technologies: ["Python", "discord.py", "JSON"],*/
+    image: "/images/hoi4-bot-1.jpg",
   },
   {
     id: 6,
-    title: "#SOON",
-    description: "More information coming soon!",
-    /*technologies: ["",],*/
-    image: "/images/Coming-soon-image.jpg",
+    title: "Wordle Game Platform",
+    description: "A multiplayer-ready Wordle clone where users can play random Wordle games, track stats, and compete on leaderboards.",
+    /*technologies: ["Laravel", "PHP", "Bootstrap"],*/
+    image: "/images/wordle-1.jpg",
   },
 ];
