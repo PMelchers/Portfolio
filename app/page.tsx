@@ -84,12 +84,12 @@ export default function Home() {
                   <span>Tire & Rim Management App</span>
                 </div>
                 <div className={styles.teaserFeature}>
-                  <span className={styles.featureIcon}>⚔️</span>
-                  <span>Minecraft Kingdom Web Platform</span>
+                  <span className={styles.featureIcon}>🛠️</span>
+                  <span>Minimalist Portfolio Builder</span>
                 </div>
                 <div className={styles.teaserFeature}>
-                  <span className={styles.featureIcon}>🎮</span>
-                  <span>Wordle Game</span>
+                  <span className={styles.featureIcon}>🤖</span>
+                  <span>Auto Cryptocurrency Trader</span>
                 </div>
               </div>
               <Button asChild variant="default" className={styles.teaserButton}>

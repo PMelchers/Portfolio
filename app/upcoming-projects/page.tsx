@@ -37,6 +37,24 @@ const upcomingProjects = [
       "Mobile-friendly output templates",
     ],
   },
+  {
+    id: 3,
+    title: "Automatic Cryptocurrency Trader",
+    description:
+      "A full-stack platform for automated cryptocurrency trading using Binance API, with a FastAPI backend (Python) and a React frontend for monitoring and control.",
+    technologies: ["Python", "FastAPI", "Binance API", "React", "Tailwind CSS"],
+    timeline: "Q4 2025",
+    status: "Concept",
+    features: [
+      "Automated trading strategies (buy/sell) on Binance",
+      "Real-time portfolio and trade monitoring dashboard",
+      "User authentication and API key management",
+      "Customizable trading parameters and risk controls",
+      "Trade history and performance analytics",
+      "Notifications for trade events and errors",
+      "Secure storage of sensitive credentials",
+    ],
+  },
 ]
 
 // Status badge component
