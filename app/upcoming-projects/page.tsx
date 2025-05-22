@@ -10,7 +10,7 @@ const upcomingProjects = [
     description:
       "A mobile application for managing tire and rim inventory, including tracking usage, maintenance schedules, and performance metrics.",
     technologies: ["Android Studio", "Kotlin", "Room DB"],
-    timeline: "Q2 2025",
+    timeline: "Q3 2025",
     status: "Research",
     features: [
       "Inventory management for tires and rims",
@@ -21,57 +21,11 @@ const upcomingProjects = [
   },
   {
     id: 2,
-    title: "Minecraft Web Application for a kingdom",
-    description:
-      "A web application for managing a Minecraft kingdom, including player stats, which seasons they played, and their ranks. With clips of their best moments. and a kingdom power ranking system.",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Node.js",
-      "Express.js",
-      "PostgreSQL",
-      "Cloudinary",
-      "Minecraft Plugin API",
-      "Auth0",
-    ],
-    timeline: "Q3 2025",
-    status: "Research",
-    features: [
-      "Player stat tracking across seasons",
-      "Kingdom power ranking system",
-      "Video clips of player highlights",
-      "Player rank and achievement system",
-      "Season history and participation tracking",
-      "Authentication with Minecraft or Discord accounts",
-      "Admin panel for managing users and content",
-      "Mobile-friendly responsive design",
-    ],
-  },
-  {
-    id: 3,
-    title: "Wordle Web Application",
-    description:
-      "A browser-based Wordle clone that allows users to play daily puzzles, track their stats, and share their results with friends.",
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB"],
-    timeline: "Q2 2025",
-    status: "Development",
-    features: [
-      "Daily word puzzles",
-      "User authentication and profiles",
-      "Game result sharing",
-      "Win streak and guess stats",
-      "Custom word mode",
-      "Responsive design for mobile and desktop",
-    ],
-  },
-  {
-    id: 4,
     title: "Minimalist Portfolio Builder",
     description:
       "A simple web application that allows users to build and customize a personal portfolio website without needing to write code.",
     technologies: ["React", "Firebase", "Tailwind CSS"],
-    timeline: "Q2 2025",
+    timeline: "Q3 2025",
     status: "Planning",
     features: [
       "Drag-and-drop section builder",

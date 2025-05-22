@@ -78,7 +78,102 @@ const getProjectData = (id: string) => {
       githubUrl: "https://github.com/Roexoe/Frontedge2",
       year: 2025,
     },
-    // Add more projects as needed
+    "4": {
+      id: 4,
+      title: "Kingdom Dashboard & Minecraft Integration",
+      description: "A full-stack web dashboard and Minecraft plugin system for managing kingdoms, players, stats, and ranks with real-time server integration.",
+      longDescription: `
+        Kingdom Dashboard is a full-stack web application and Minecraft plugin system for managing Minecraft kingdoms, players, stats, and ranks, with real-time integration between your Minecraft server and a modern web dashboard.
+        **Tech Stack**
+        - Frontend: React, Axios
+        - Backend: Node.js, Express, MongoDB, REST API
+        - Minecraft Plugin: Java (Bukkit/Spigot API), HTTP integration with backend API
+        - Hosting: Render.com (for backend and frontend), MongoDB Atlas (database)
+
+        **Web Dashboard Features:**
+        - Manage kingdoms, players, ranks, and admin users via a secure admin panel.
+        - View global leaderboards (K/D, kills, score).
+        - Assign players to kingdoms and ranks.
+        - Real-time updates from Minecraft server actions.
+        **Minecraft Plugin Features:**
+        - Communicates with the backend API to keep data in sync.
+        - Real-time updates to the web dashboard when players join or leave kingdoms.
+        - Customizable ranks and permissions for players.
+        `,
+
+      technologies: [
+        "React",
+        "Axios",
+        "CSS",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "Java",
+        "Bukkit/Spigot API",
+        "REST API"
+      ],
+      images: [
+        "/images/KingdomDashboard-1.jpg",
+        "/images/KingdomDashboard-2.jpg",
+        "/images/KingdomDashboard-3.jpg"
+      ],
+      videoUrl: "/videos/KingdomDashboard-demo.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/PMelchers/KingdomDashboard",
+      year: 2025,
+    },
+    5: {
+      id: 5,
+      title: "HOI4 Discord Bot",
+      description: "A Discord bot for managing Hearts of Iron IV multiplayer games and player assignments.",
+      longDescription: `
+        This project is a feature-rich Discord bot designed to streamline the organization of Hearts of Iron IV (HOI4) multiplayer games.
+        The bot allows admins to assign players to countries, manage player history and warnings, and announce new games with ease.
+        Built using Python and the discord.py library, it provides a smooth experience for both admins and players.
+
+        The portfolio includes:
+        - Country assignment and unassignment commands
+        - Player history and warning tracking
+        - Game announcement with ID, password, and start time
+        - Real-time status message updates in a dedicated channel
+        - Overview and missing player reports
+        - Admin-only command protection
+        - Persistent data storage using JSON files
+        - Easy-to-use slash commands for all major actions
+      `,
+      technologies: ["Python", "discord.py", "JSON"],
+      images: ["/images/hoi4-bot-1.jpg", "/images/hoi4-bot-2.jpg", "/images/hoi4-bot-3.jpg"],
+      videoUrl: "/videos/hoi4-bot-demo.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/pimme/HOI-bot",
+      year: 2025,
+    },
+    6: {
+    id: 6,
+    title: "Wordle Game Platform",
+    description: "A multiplayer-ready Wordle clone where users can play random Wordle games, track stats, and compete on leaderboards.",
+    longDescription: `
+      This project is a Laravel-based Wordle clone that allows users to play a new random Wordle game each time. 
+      Users can log in, play Wordle with a randomly selected five-letter word, and track their progress and stats. 
+      The platform features a leaderboard, friends system, and user profiles. The UI is styled with Bootstrap and provides a familiar Wordle experience with six guesses per game.
+
+      The portfolio includes:
+      - User authentication and profiles
+      - Random Wordle game generation for each new game
+      - Guess validation and feedback (green/yellow/gray tiles)
+      - Leaderboard for top players
+      - Friends system for connecting with others
+      - Game history and stats tracking
+      - Responsive design for desktop and mobile
+      - Built with Laravel, PHP, and Bootstrap
+    `,
+    technologies: ["Laravel", "PHP", "Bootstrap"],
+    images: ["/images/wordle-1.jpg", "/images/wordle-2.jpg", "/images/wordle-3.jpg"],
+    videoUrl: "/videos/wordle-demo.mp4",
+    liveUrl: "",
+    githubUrl: "https://github.com/pimme/Wordle",
+    year: 2025,
+  }
   }
 
   return projects[id as keyof typeof projects]
@@ -86,7 +181,7 @@ const getProjectData = (id: string) => {
 
 // Generate static params for static generation
 export async function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }]
+  return [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }]
 }
 
 // Make the component async to match Next.js 15's expectations
