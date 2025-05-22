@@ -43,8 +43,8 @@ const upcomingProjects = [
     description:
       "A full-stack platform for automated cryptocurrency trading using Binance API, with a FastAPI backend (Python) and a React frontend for monitoring and control.",
     technologies: ["Python", "FastAPI", "Binance API", "React", "Tailwind CSS"],
-    timeline: "Q4 2025",
-    status: "Concept",
+    timeline: "Q2 2025",
+    status: "Development",
     features: [
       "Automated trading strategies (buy/sell) on Binance",
       "Real-time portfolio and trade monitoring dashboard",
