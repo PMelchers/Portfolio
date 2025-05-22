@@ -113,13 +113,13 @@ const getProjectData = (id: string) => {
         "REST API"
       ],
       images: [
-        "/images/KingdomDashboard-1.jpg",
-        "/images/KingdomDashboard-2.jpg",
-        "/images/KingdomDashboard-3.jpg"
+        "/images/Kingdomstast-image-1.jpg",
+        "/images/KKingdomstast-image-2.jpg",
+        "/images/Kingdomstast-image-3.jpg"
       ],
-      videoUrl: "/videos/KingdomDashboard-demo.mp4",
+      videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
-      githubUrl: "https://github.com/PMelchers/KingdomDashboard",
+      githubUrl: "https://github.com/PMelchers/KD-Panel",
       year: 2025,
     },
     5: {
@@ -142,38 +142,12 @@ const getProjectData = (id: string) => {
         - Easy-to-use slash commands for all major actions
       `,
       technologies: ["Python", "discord.py", "JSON"],
-      images: ["/images/hoi4-bot-1.jpg", "/images/hoi4-bot-2.jpg", "/images/hoi4-bot-3.jpg"],
-      videoUrl: "/videos/hoi4-bot-demo.mp4",
+      images: ["/images/Discordbot-image-1.jpg", "/images/Discordbot-image-2", "/images/Discordbot-image-3.jpg"],
+      videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
-      githubUrl: "https://github.com/pimme/HOI-bot",
+      githubUrl: "",
       year: 2025,
-    },
-    6: {
-    id: 6,
-    title: "Wordle Game Platform",
-    description: "A multiplayer-ready Wordle clone where users can play random Wordle games, track stats, and compete on leaderboards.",
-    longDescription: `
-      This project is a Laravel-based Wordle clone that allows users to play a new random Wordle game each time. 
-      Users can log in, play Wordle with a randomly selected five-letter word, and track their progress and stats. 
-      The platform features a leaderboard, friends system, and user profiles. The UI is styled with Bootstrap and provides a familiar Wordle experience with six guesses per game.
-
-      The portfolio includes:
-      - User authentication and profiles
-      - Random Wordle game generation for each new game
-      - Guess validation and feedback (green/yellow/gray tiles)
-      - Leaderboard for top players
-      - Friends system for connecting with others
-      - Game history and stats tracking
-      - Responsive design for desktop and mobile
-      - Built with Laravel, PHP, and Bootstrap
-    `,
-    technologies: ["Laravel", "PHP", "Bootstrap"],
-    images: ["/images/wordle-1.jpg", "/images/wordle-2.jpg", "/images/wordle-3.jpg"],
-    videoUrl: "/videos/wordle-demo.mp4",
-    liveUrl: "",
-    githubUrl: "https://github.com/pimme/Wordle",
-    year: 2025,
-  }
+    }
   }
 
   return projects[id as keyof typeof projects]
