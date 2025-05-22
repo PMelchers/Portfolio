@@ -113,9 +113,9 @@ const getProjectData = (id: string) => {
         "REST API"
       ],
       images: [
-        "/images/Kingdomstast-image-1.jpg",
-        "/images/KKingdomstast-image-2.jpg",
-        "/images/Kingdomstast-image-3.jpg"
+        "/images/Kingdomstats-image-1.jpg",
+        "/images/Kingdomstats-image-2.jpg",
+        "/images/Kingdomstats-image-3.jpg"
       ],
       videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
@@ -142,7 +142,7 @@ const getProjectData = (id: string) => {
         - Easy-to-use slash commands for all major actions
       `,
       technologies: ["Python", "discord.py", "JSON"],
-      images: ["/images/Discordbot-image-1.jpg", "/images/Discordbot-image-2", "/images/Discordbot-image-3.jpg"],
+      images: ["/images/Discordbot-image-1.jpg", "/images/Discordbot-image-2.jpg", "/images/Discordbot-image-3.jpg"],
       videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
       githubUrl: "",
