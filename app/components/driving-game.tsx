@@ -21,45 +21,75 @@ const DrivingGame: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameCompleted, setGameCompleted] = useState(false);
-  const [car, setCar] = useState<CarPosition>({ x: 650, y: 430, angle: 0 });
+  const [car, setCar] = useState<CarPosition>({ x: 80, y: 400, angle: 0 });
   const [progress, setProgress] = useState(0);
   const keysPressed = useRef<Set<string>>(new Set());
   const animationFrameRef = useRef<number | null>(null);
   const [currentCheckpoint, setCurrentCheckpoint] = useState(0);
+  const [canvasSize, setCanvasSize] = useState({ width: 1200, height: 600 });
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Define the race track checkpoints for progress tracking
+  // Handle responsive canvas sizing
+  useEffect(() => {
+    const handleResize = () => {
+      const maxWidth = Math.min(window.innerWidth - 40, 1200);
+      const maxHeight = Math.min(window.innerHeight - 200, 600);
+      const mobile = window.innerWidth < 768;
+      
+      setIsMobile(mobile);
+      
+      if (mobile) {
+        setCanvasSize({ width: maxWidth, height: maxHeight * 0.7 });
+      } else {
+        setCanvasSize({ width: maxWidth, height: maxHeight });
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Define the race track checkpoints for progress tracking - positioned on the actual track
   const checkpoints: Checkpoint[] = [
-    { x: 650, y: 400, width: 300, height: 50, id: 0 }, // Start/Finish line
-    { x: 950, y: 200, width: 50, height: 100, id: 1 }, // Turn 1
-    { x: 800, y: 180, width: 100, height: 50, id: 2 }, // Turn 2 (moved down)
-    { x: 200, y: 180, width: 100, height: 50, id: 3 }, // Turn 3 (moved down)
-    { x: 100, y: 300, width: 50, height: 100, id: 4 }, // Turn 4
-    { x: 300, y: 400, width: 100, height: 50, id: 5 }, // Turn 5
+    { x: 100, y: canvasSize.height - 100, width: 40, height: 40, id: 0 }, // Start/Finish line
+    { x: 300, y: canvasSize.height - 100, width: 40, height: 40, id: 1 }, // Bottom straight
+    { x: 500, y: canvasSize.height - 100, width: 40, height: 40, id: 2 }, // Bottom straight
+    { x: 700, y: canvasSize.height - 100, width: 40, height: 40, id: 3 }, // Bottom straight
+    { x: canvasSize.width - 100, y: canvasSize.height - 100, width: 40, height: 40, id: 4 }, // Turn 1 (bottom-right)
+    { x: canvasSize.width - 100, y: canvasSize.height - 300, width: 40, height: 40, id: 5 }, // Right straight
+    { x: canvasSize.width - 100, y: canvasSize.height - 450, width: 40, height: 40, id: 6 }, // Right straight
+    { x: canvasSize.width - 100, y: 100, width: 40, height: 40, id: 7 }, // Turn 2 (top-right)
+    { x: canvasSize.width - 300, y: 100, width: 40, height: 40, id: 8 }, // Top straight
+    { x: canvasSize.width - 500, y: 100, width: 40, height: 40, id: 9 }, // Top straight
+    { x: canvasSize.width - 700, y: 100, width: 40, height: 40, id: 10 }, // Top straight
+    { x: 100, y: 100, width: 40, height: 40, id: 11 }, // Turn 3 (top-left)
+    { x: 100, y: 250, width: 40, height: 40, id: 12 }, // Left straight
+    { x: 100, y: 400, width: 40, height: 40, id: 13 }, // Left straight
   ];
 
-  // Track boundaries for collision detection
+  // Track boundaries for collision detection - Simple square track
   const isOnTrack = (x: number, y: number): boolean => {
-    const canvas = canvasRef.current;
-    if (!canvas) return false;
+    const trackWidth = 80;
+    const margin = 60;
     
-    // Define proper track boundaries for oval track
-    const trackCenterX = canvas.width / 2;
-    const trackCenterY = canvas.height / 2;
+    // Track boundaries
+    const outerLeft = margin;
+    const outerRight = canvasSize.width - margin;
+    const outerTop = margin;
+    const outerBottom = canvasSize.height - margin;
     
-    // Outer oval boundary
-    const outerA = 450; // Semi-major axis
-    const outerB = 150; // Semi-minor axis
-    const outerDist = Math.pow(x - trackCenterX, 2) / Math.pow(outerA, 2) + 
-                      Math.pow(y - trackCenterY, 2) / Math.pow(outerB, 2);
+    const innerLeft = margin + trackWidth;
+    const innerRight = canvasSize.width - margin - trackWidth;
+    const innerTop = margin + trackWidth;
+    const innerBottom = canvasSize.height - margin - trackWidth;
     
-    // Inner oval boundary
-    const innerA = 350; // Semi-major axis
-    const innerB = 80; // Semi-minor axis
-    const innerDist = Math.pow(x - trackCenterX, 2) / Math.pow(innerA, 2) + 
-                      Math.pow(y - trackCenterY, 2) / Math.pow(innerB, 2);
+    // Check if point is within the track (between outer and inner boundaries)
+    const withinOuter = x >= outerLeft && x <= outerRight && y >= outerTop && y <= outerBottom;
+    const withinInner = x >= innerLeft && x <= innerRight && y >= innerTop && y <= innerBottom;
     
-    // Car is on track if it's between inner and outer boundaries
-    return outerDist <= 1 && innerDist >= 1;
+    // On track if within outer boundary but not within inner boundary
+    return withinOuter && !withinInner;
   };
 
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
@@ -122,12 +152,15 @@ const DrivingGame: React.FC = () => {
 
   const checkProgress = useCallback(() => {
     const currentCheckpointData = checkpoints[currentCheckpoint];
-    if (
-      car.x >= currentCheckpointData.x &&
-      car.x <= currentCheckpointData.x + currentCheckpointData.width &&
-      car.y >= currentCheckpointData.y &&
-      car.y <= currentCheckpointData.y + currentCheckpointData.height
-    ) {
+    
+    // Check if car is close to the current checkpoint
+    const distance = Math.sqrt(
+      Math.pow(car.x - currentCheckpointData.x, 2) + 
+      Math.pow(car.y - currentCheckpointData.y, 2)
+    );
+    
+    // If car is close to checkpoint, advance to next one
+    if (distance < 50) {
       const nextCheckpoint = (currentCheckpoint + 1) % checkpoints.length;
       setCurrentCheckpoint(nextCheckpoint);
       
@@ -146,66 +179,94 @@ const DrivingGame: React.FC = () => {
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
 
-    // Clear canvas
-    ctx.fillStyle = '#0a0f1c';
+    // Clear canvas with grass color
+    ctx.fillStyle = '#22c55e';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Draw track
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
+    const trackWidth = 80;
+    const margin = 60;
+    
+    // Draw track surface (simple square)
+    ctx.fillStyle = '#374151';
+    ctx.fillRect(margin, margin, canvas.width - 2 * margin, trackWidth); // Top
+    ctx.fillRect(margin, margin, trackWidth, canvas.height - 2 * margin); // Left
+    ctx.fillRect(canvas.width - margin - trackWidth, margin, trackWidth, canvas.height - 2 * margin); // Right
+    ctx.fillRect(margin, canvas.height - margin - trackWidth, canvas.width - 2 * margin, trackWidth); // Bottom
 
-    // Draw outer track boundary
+    // Draw track outer boundaries (blue)
     ctx.strokeStyle = '#1e40af';
     ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.ellipse(centerX, centerY, 450, 150, 0, 0, Math.PI * 2);
+    ctx.rect(margin - 2, margin - 2, canvas.width - 2 * margin + 4, canvas.height - 2 * margin + 4);
     ctx.stroke();
 
-    // Draw track surface
-    ctx.fillStyle = '#374151';
-    ctx.fill();
-
-    // Draw inner track boundary
+    // Draw track inner boundaries (blue)
     ctx.strokeStyle = '#1e40af';
-    ctx.lineWidth = 2;
+    ctx.lineWidth = 4;
     ctx.beginPath();
-    ctx.ellipse(centerX, centerY, 350, 80, 0, 0, Math.PI * 2);
+    ctx.rect(margin + trackWidth + 2, margin + trackWidth + 2, 
+             canvas.width - 2 * margin - 2 * trackWidth - 4, 
+             canvas.height - 2 * margin - 2 * trackWidth - 4);
     ctx.stroke();
 
-    // Draw center line
+    // Draw track center line (dashed yellow)
     ctx.strokeStyle = '#fbbf24';
     ctx.lineWidth = 2;
-    ctx.setLineDash([10, 10]);
+    ctx.setLineDash([15, 10]);
+    // Top
     ctx.beginPath();
-    ctx.ellipse(centerX, centerY, 400, 115, 0, 0, Math.PI * 2);
+    ctx.moveTo(margin + trackWidth/2, margin + trackWidth/2);
+    ctx.lineTo(canvas.width - margin - trackWidth/2, margin + trackWidth/2);
+    ctx.stroke();
+    // Right
+    ctx.beginPath();
+    ctx.moveTo(canvas.width - margin - trackWidth/2, margin + trackWidth/2);
+    ctx.lineTo(canvas.width - margin - trackWidth/2, canvas.height - margin - trackWidth/2);
+    ctx.stroke();
+    // Bottom
+    ctx.beginPath();
+    ctx.moveTo(canvas.width - margin - trackWidth/2, canvas.height - margin - trackWidth/2);
+    ctx.lineTo(margin + trackWidth/2, canvas.height - margin - trackWidth/2);
+    ctx.stroke();
+    // Left
+    ctx.beginPath();
+    ctx.moveTo(margin + trackWidth/2, canvas.height - margin - trackWidth/2);
+    ctx.lineTo(margin + trackWidth/2, margin + trackWidth/2);
     ctx.stroke();
     ctx.setLineDash([]);
 
     // Draw start/finish line
     ctx.fillStyle = gameCompleted ? '#22c55e' : '#ef4444';
-    ctx.fillRect(620, 380, 60, 40);
+    ctx.fillRect(margin - 5, canvas.height - margin - trackWidth, 10, trackWidth);
+    
+    // Start/Finish text
     ctx.fillStyle = '#ffffff';
-    ctx.font = '12px monospace';
+    ctx.font = 'bold 12px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(gameCompleted ? 'FINISH' : 'START', 650, 405);
+    ctx.fillText(gameCompleted ? 'FINISH' : 'START', margin + 40, canvas.height - margin - trackWidth/2 + 4);
 
-    // Draw checkpoints with transparency
+    // Draw checkpoints on the track
     checkpoints.forEach((checkpoint, index) => {
       if (index === 0) return; // Skip start/finish line
+      
       ctx.fillStyle = index === currentCheckpoint ? 
-        'rgba(34, 197, 94, 0.6)' : 'rgba(251, 191, 36, 0.6)';
-      ctx.fillRect(checkpoint.x, checkpoint.y, checkpoint.width, checkpoint.height);
+        'rgba(34, 197, 94, 0.8)' : 'rgba(251, 191, 36, 0.6)';
+      ctx.beginPath();
+      ctx.arc(checkpoint.x, checkpoint.y, 15, 0, Math.PI * 2);
+      ctx.fill();
       
       // Add border
       ctx.strokeStyle = index === currentCheckpoint ? '#22c55e' : '#fbbf24';
       ctx.lineWidth = 2;
-      ctx.strokeRect(checkpoint.x, checkpoint.y, checkpoint.width, checkpoint.height);
+      ctx.beginPath();
+      ctx.arc(checkpoint.x, checkpoint.y, 15, 0, Math.PI * 2);
+      ctx.stroke();
       
       // Add checkpoint number
       ctx.fillStyle = '#000000';
-      ctx.font = '12px monospace';
+      ctx.font = 'bold 10px monospace';
       ctx.textAlign = 'center';
-      ctx.fillText(`${index}`, checkpoint.x + checkpoint.width/2, checkpoint.y + checkpoint.height/2 + 4);
+      ctx.fillText(`${index}`, checkpoint.x, checkpoint.y + 3);
     });
 
     // Draw car
@@ -218,7 +279,7 @@ const DrivingGame: React.FC = () => {
     ctx.fillRect(10, -4, 4, 8);
     ctx.restore();
 
-  }, [car, currentCheckpoint, gameCompleted]);
+  }, [car, currentCheckpoint, gameCompleted, canvasSize]);
 
   const gameLoop = useCallback(() => {
     updateCarPosition();
@@ -252,7 +313,12 @@ const DrivingGame: React.FC = () => {
   const startGame = () => {
     setGameStarted(true);
     setGameCompleted(false);
-    setCar({ x: 650, y: 430, angle: 0 });
+    // Position car at start line on the track
+    setCar({ 
+      x: 100, 
+      y: canvasSize.height - 100, 
+      angle: 0 
+    });
     setProgress(0);
     setCurrentCheckpoint(0);
   };
@@ -260,7 +326,12 @@ const DrivingGame: React.FC = () => {
   const resetGame = () => {
     setGameStarted(false);
     setGameCompleted(false);
-    setCar({ x: 650, y: 430, angle: 0 });
+    // Reset car position
+    setCar({ 
+      x: 100, 
+      y: canvasSize.height - 100, 
+      angle: 0 
+    });
     setProgress(0);
     setCurrentCheckpoint(0);
     keysPressed.current.clear();
@@ -280,8 +351,8 @@ const DrivingGame: React.FC = () => {
       <div className={styles.gameArea}>
         <canvas
           ref={canvasRef}
-          width={1200}
-          height={600}
+          width={canvasSize.width}
+          height={canvasSize.height}
           className={styles.gameCanvas}
         />
         
@@ -301,7 +372,7 @@ const DrivingGame: React.FC = () => {
             <div className={styles.completionMessage}>
               <h2>🏆 Welcome to my Portfolio!</h2>
               <p>Congratulations! You've completed the race.</p>
-              <p>Now let's explore my projects below!</p>
+              <p>Now let's explore my projects!</p>
               <button onClick={resetGame} className={styles.resetButton}>
                 🔄 Race Again
               </button>
@@ -312,7 +383,15 @@ const DrivingGame: React.FC = () => {
 
       {gameStarted && !gameCompleted && (
         <div className={styles.controls}>
-          <p>🎮 Controls: WASD or Arrow Keys to drive | Stay on the track!</p>
+          <p>🎮 Controls: {isMobile ? 'Use virtual buttons below' : 'WASD or Arrow Keys to drive'} | Stay on the track!</p>
+        </div>
+      )}
+
+      {isMobile && (
+        <div className={styles.mobileMessage}>
+          <h3>Mobile Play</h3>
+          <p>Game is optimized for desktop with keyboard controls</p>
+          <p>For best experience, please use a desktop/laptop</p>
         </div>
       )}
     </div>

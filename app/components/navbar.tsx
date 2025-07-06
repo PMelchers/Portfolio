@@ -32,6 +32,7 @@ export default function Navbar() {
               key={route.href}
               href={route.href}
               className={`${styles.navLink} ${pathname === route.href ? styles.activeLink : ""}`}
+              prefetch={true}
             >
               {route.label}
             </Link>

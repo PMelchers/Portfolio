@@ -1,15 +1,41 @@
 import Image from "next/image"
-import { Mail, MapPin, Calendar, Code, Database, Server, Smartphone } from "lucide-react"
+import Link from "next/link"
+import { Mail, MapPin, Calendar } from "lucide-react"
 import { Button } from "../components/ui/button"
 import ScrollAnimation from "../components/scroll-animation"
 import styles from "./about.module.css"
 
 export default function About() {
   const skills = [
-    { name: "Frontend", icon: <Code className={styles.skillIcon} />, technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { name: "Backend", icon: <Server className={styles.skillIcon} />, technologies: ["Node.js", "Express", "Python", "REST APIs"] },
-    { name: "Database", icon: <Database className={styles.skillIcon} />, technologies: ["PostgreSQL", "MongoDB", "Redis", "GraphQL"] },
-    { name: "Mobile", icon: <Smartphone className={styles.skillIcon} />, technologies: ["React Native", "Flutter", "iOS", "Android"] },
+    // Frontend Technologies
+    { name: "React", rating: 5, category: "Frontend" },
+    { name: "Next.js", rating: 3, category: "Frontend" },
+    { name: "TypeScript", rating: 4, category: "Frontend" },
+    { name: "JavaScript", rating: 4, category: "Frontend" },
+    { name: "Tailwind CSS", rating: 3, category: "Frontend" },
+    { name: "CSS", rating: 4, category: "Frontend" },
+
+    
+    // Backend Technologies
+    { name: "Node.js", rating: 3, category: "Backend" },
+    { name: "Python", rating: 3, category: "Backend" },
+    { name: "Java", rating: 4, category: "Backend" },
+    { name: "REST API", rating: 4, category: "Backend" },
+    
+    // Database Technologies
+    { name: "MongoDB", rating: 3, category: "Database" },
+    { name: "Firebase", rating: 4, category: "Database" },
+    
+    // Game Development
+    { name: "Spigot API", rating: 4, category: "Game Development" },
+    { name: "Bukkit API", rating: 4, category: "Game Development" },
+    { name: "Minecraft Plugin Development", rating: 4, category: "Game Development" },
+    { name: "Godot", rating: 4, category: "Game Development" },
+    
+    // Tools & Platforms
+    { name: "Git", rating: 4, category: "Tools" },
+    { name: "GitHub", rating: 4, category: "Tools" },
+    { name: "Figma", rating: 3, category: "Tools" },
   ]
 
   return (
@@ -52,7 +78,7 @@ export default function About() {
                 </div>
                 <div className={styles.infoItem}>
                   <Mail className={styles.infoIcon} />
-                  <span>pim.melchers@example.com</span>
+                  <span>pimmelchers1@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -66,22 +92,18 @@ export default function About() {
           <ScrollAnimation animation="fadeInUp">
             <div className={styles.storySection}>
               <h2 className={styles.sectionTitle}>
-                <span className={styles.prompt}>$</span> cat about-me.txt
+                <span className={styles.prompt}>$</span> cat about.txt
               </h2>
               <div className={styles.storyContent}>
                 <p className={styles.storyText}>
-                  Passionate developer with a love for creating innovative solutions that bridge the gap between 
-                  design and functionality. I specialize in building scalable web applications and mobile solutions 
-                  that deliver exceptional user experiences.
+                  Passionate and motivated developer with a love for bringing my ideas into a reality. I value not only functionality but design is just as important for me.
                 </p>
                 <p className={styles.storyText}>
                   My journey in tech started with curiosity about how things work, which led me to explore 
-                  various programming languages and frameworks. I'm constantly learning and adapting to new 
-                  technologies to stay at the forefront of development.
+                  various programming languages and frameworks. I'm constantly learning new concepts and tricks by taking all projects head on.
                 </p>
                 <p className={styles.storyText}>
-                  When I'm not coding, you can find me exploring new tech trends, contributing to open-source 
-                  projects, or sharing knowledge with the developer community.
+                  When I'm not coding, you can find me playing volleyball and of course helping others with their tech problems.
                 </p>
               </div>
             </div>
@@ -98,20 +120,34 @@ export default function About() {
             </h2>
           </ScrollAnimation>
           
-          <div className={styles.skillsGrid}>
-            {skills.map((skill, index) => (
-              <ScrollAnimation key={skill.name} animation="fadeInUp" delay={index * 100}>
-                <div className={styles.skillCard}>
-                  <div className={styles.skillHeader}>
-                    {skill.icon}
-                    <h3 className={styles.skillTitle}>{skill.name}</h3>
-                  </div>
-                  <div className={styles.skillTechnologies}>
-                    {skill.technologies.map((tech) => (
-                      <span key={tech} className={styles.techTag}>
-                        {tech}
-                      </span>
-                    ))}
+          <div className={styles.skillCategories}>
+            {['Frontend', 'Backend', 'Database', 'Game Development', 'Tools'].map((category) => (
+              <ScrollAnimation key={category} animation="fadeInUp" delay={100}>
+                <div className={styles.categorySection}>
+                  <h3 className={styles.categoryTitle}>{category}</h3>
+                  <div className={styles.skillsList}>
+                    {skills
+                      .filter(skill => skill.category === category)
+                      .map((skill, index) => (
+                        <div key={skill.name} className={styles.skillItem}>
+                          <div className={styles.skillInfo}>
+                            <span className={styles.skillName}>{skill.name}</span>
+                            <div className={styles.skillRating}>
+                              {[...Array(5)].map((_, starIndex) => (
+                                <span
+                                  key={starIndex}
+                                  className={`${styles.star} ${
+                                    starIndex < skill.rating ? styles.starFilled : styles.starEmpty
+                                  }`}
+                                  style={{ animationDelay: `${index * 100 + starIndex * 50}ms` }}
+                                >
+                                  ★
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                   </div>
                 </div>
               </ScrollAnimation>
@@ -129,18 +165,18 @@ export default function About() {
                 <span className={styles.prompt}>$</span> let's collaborate();
               </h2>
               <p className={styles.ctaSubtitle}>
-                Ready to bring your ideas to life? Let's build something amazing together.
+                Ready to bring your ideas to reality? Let me know!.
               </p>
               <div className={styles.ctaButtons}>
                 <Button asChild size="lg" className={styles.primaryButton}>
-                  <a href="mailto:pim.melchers@example.com">
+                  <Link href="/contact">
                     Get In Touch
-                  </a>
+                  </Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <a href="/projects">
+                  <Link href="/projects">
                     View My Work
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>
