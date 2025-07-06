@@ -41,6 +41,6 @@ export const projects = [
     title: "Taskio - Family Quest Manager",
     description: "A gamified family chore and quest management app that transforms household tasks into exciting adventures for children while giving parents powerful tools to track progress and manage rewards.",
     /*technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite"],*/
-    image: "/images/taskio-iamge-1.png",
+    image: "/images/taskio-image-1.png",
   },
 ];

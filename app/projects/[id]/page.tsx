@@ -170,7 +170,7 @@ const getProjectData = (id: string) => {
         - Notification system for task updates and completions
       `,
       technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite"],
-      images: ["/images/taskio-iamge-1.png", "/images/taskio-iamge-2.png", "/images/taskio-iamge-3.png"],
+      images: ["/images/taskio-image-1.png", "/images/taskio-image-2.png", "/images/taskio-image-3.png"],
       videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
       githubUrl: "https://github.com/PMelchers/chores-app",
