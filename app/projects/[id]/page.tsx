@@ -147,6 +147,34 @@ const getProjectData = (id: string) => {
       liveUrl: "",
       githubUrl: "",
       year: 2025,
+    },
+    6: {
+      id: 6,
+      title: "Taskio - Family Quest Manager",
+      description: "A gamified family chore management app that turns household tasks into epic quests and adventures for children.",
+      longDescription: `
+        Taskio is a modern React-based family management application that transforms mundane household chores into exciting quests and adventures. 
+        The app features separate dashboards for parents and children, creating an engaging experience that motivates kids to complete their tasks.
+        Built with React, TypeScript, and Firebase, it provides real-time updates and a responsive design that works across all devices.
+
+        The application includes:
+        - Gamified quest system with difficulty levels (easy, medium, hard, epic, legendary)
+        - Parent dashboard for creating and managing quests/tasks
+        - Child dashboard with colorful animations and reward tracking
+        - Real-time progress tracking and completion status
+        - Coin and XP reward system to motivate participation
+        - Family management with role-based authentication
+        - Firebase integration for real-time data synchronization
+        - Responsive design with Tailwind CSS animations
+        - Task categories (daily, weekly, monthly, special events)
+        - Notification system for task updates and completions
+      `,
+      technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite"],
+      images: ["/images/taskio-dashboard.jpg", "/images/taskio-quests.jpg", "/images/taskio-rewards.jpg"],
+      videoUrl: "/videos/taskio-demo.mp4",
+      liveUrl: "",
+      githubUrl: "https://github.com/PMelchers/chores-app",
+      year: 2024,
     }
   }
 
@@ -155,7 +183,7 @@ const getProjectData = (id: string) => {
 
 // Generate static params for static generation
 export async function generateStaticParams() {
-  return [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }]
+  return [{ id: "1" }, { id: "2" }, { id: "3" }, { id: "4" }, { id: "5" }, { id: "6" }]
 }
 
 // Make the component async to match Next.js 15's expectations

@@ -38,9 +38,9 @@ export const projects = [
   },
   {
     id: 6,
-    title: "#SOON",
-    description: "A project that is currently in development and will be released soon.",
-    /*technologies: ["Laravel", "PHP", "Bootstrap"],*/
+    title: "Taskio - Family Quest Manager",
+    description: "A gamified family chore and quest management app that transforms household tasks into exciting adventures for children while giving parents powerful tools to track progress and manage rewards.",
+    /*technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite"],*/
     image: "/images/Coming-soon-image.jpg",
   },
 ];
