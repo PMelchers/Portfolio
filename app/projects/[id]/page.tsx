@@ -170,8 +170,8 @@ const getProjectData = (id: string) => {
         - Notification system for task updates and completions
       `,
       technologies: ["React", "TypeScript", "Firebase", "Tailwind CSS", "Vite"],
-      images: ["/images/taskio-dashboard.jpg", "/images/taskio-quests.jpg", "/images/taskio-rewards.jpg"],
-      videoUrl: "/videos/taskio-demo.mp4",
+      images: ["/images/taskio-iamge-1.png", "/images/taskio-iamge-2.png", "/images/taskio-iamge-3.png"],
+      videoUrl: "/videos/Coming-soon.mp4",
       liveUrl: "",
       githubUrl: "https://github.com/PMelchers/chores-app",
       year: 2024,
