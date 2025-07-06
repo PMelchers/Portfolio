@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import { Button } from "../components/ui/button"
+import ReviewCodeAnimation from "../components/review-code-animation"
 import styles from "./reviews.module.css"
 
 // Initial reviews data
@@ -97,6 +98,12 @@ export default function ReviewsPage() {
         </p>
       </div>
 
+      <div className={styles.content}>
+        {/* Animated Code Block */}
+        <div className={styles.codeSection}>
+          <ReviewCodeAnimation />
+        </div>
+
         {/* Reviews List */}
         <div className={styles.reviewsSection}>
           <h2 className={styles.sectionTitle}>Client Testimonials</h2>
@@ -118,5 +125,6 @@ export default function ReviewsPage() {
           </div>
         </div>
       </div>
+    </div>
   )
 }

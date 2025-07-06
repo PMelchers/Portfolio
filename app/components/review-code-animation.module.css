@@ -1,0 +1,180 @@
+.codeWindow {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  position: relative;
+  animation: codeGlow 4s ease-in-out infinite;
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+@keyframes codeGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+  }
+}
+
+.codeHeader {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.codeButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.codeButton {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.close {
+  background: #ff5f56;
+}
+
+.minimize {
+  background: #ffbd2e;
+}
+
+.maximize {
+  background: #27ca3f;
+}
+
+.codeButton:hover {
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+
+.codeTitle {
+  color: #cbd5e1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: 'Fira Code', monospace;
+}
+
+.codeBody {
+  height: 340px;
+  overflow-y: auto;
+  background: #0f172a;
+  padding: 1rem 0;
+}
+
+.codeContent {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.codeLine {
+  display: flex;
+  padding: 0 1rem;
+  min-height: 1.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.codeLine:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.lineNumber {
+  color: #6b7280;
+  width: 2rem;
+  text-align: right;
+  margin-right: 1rem;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.lineContent {
+  color: #e2e8f0;
+  flex: 1;
+}
+
+.comment {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.keyword {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.console {
+  color: #34d399;
+}
+
+.emoji {
+  color: #fbbf24;
+}
+
+.cursor {
+  color: #60a5fa;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.codeBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.codeBody::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.codeBody::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  border-radius: 4px;
+}
+
+.codeBody::-webkit-scrollbar-thumb:hover {
+  background: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .codeWindow {
+    height: 300px;
+    max-width: 100%;
+  }
+  
+  .codeBody {
+    height: 240px;
+    padding: 0.5rem 0;
+  }
+  
+  .codeContent {
+    font-size: 0.75rem;
+  }
+  
+  .codeLine {
+    padding: 0 0.5rem;
+  }
+  
+  .lineNumber {
+    width: 1.5rem;
+    margin-right: 0.5rem;
+  }
+}

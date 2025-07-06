@@ -3,7 +3,6 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { ModeToggle } from "../components/mode-toggle"
 import styles from "./navbar.module.css"
 
 export default function Navbar() {
@@ -37,12 +36,10 @@ export default function Navbar() {
               {route.label}
             </Link>
           ))}
-          <ModeToggle />
         </nav>
 
         {/* Mobile Navigation Toggle */}
         <div className={styles.mobileNavToggle}>
-          <ModeToggle />
           <button className={styles.menuButton} aria-label="Toggle Menu" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? (
               <svg

@@ -1,230 +1,227 @@
 .container {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+}
+
+.contactContent {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 60px;
 }
 
-.title {
-  font-size: 2.5rem;
+.header h1 {
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.subtitle {
-  color: var(--color-text-muted);
-  max-width: 32rem;
+.header p {
+  font-size: 1.2rem;
+  color: #a0a9c0;
+  max-width: 600px;
   margin: 0 auto;
+  line-height: 1.6;
 }
 
-.content {
+.contactInfo,
+.contactStatus,
+.availability {
+  margin-bottom: 60px;
+}
+
+.contactInfo h2,
+.contactStatus h2,
+.availability h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.infoGrid,
+.statusGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
-/* Form Styles */
-.formContainer {
-  background-color: var(--color-bg);
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  padding: 1.5rem;
+.infoItem,
+.statusItem {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
-.form {
+.infoItem:hover,
+.statusItem:hover {
+  transform: translateY(-5px);
+  border-color: #4f46e5;
+  box-shadow: 0 20px 40px rgba(79, 70, 229, 0.1);
+}
+
+.infoIcon,
+.statusIcon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, #4f46e5, #7c3aed);
+  border-radius: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.label {
-  font-weight: 500;
-  font-size: 0.875rem;
-}
-
-.input,
-.textarea {
-  padding: 0.75rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-bg);
-  color: var(--color-text);
-  font-size: 1rem;
-  width: 100%;
-  transition: border-color 0.2s ease;
-}
-
-.input:focus,
-.textarea:focus {
-  outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-.textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-.errorMessage {
-  color: var(--color-destructive);
-  font-size: 0.875rem;
-}
-
-.submitButton {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.submitButton:hover:not(:disabled) {
-  background-color: var(--color-primary-hover);
-}
-
-.submitButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Success Message */
-.successMessage {
-  text-align: center;
-  padding: 2rem 1rem;
-}
-
-.successIcon {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 9999px;
-  background-color: rgba(59, 130, 246, 0.1);
-  color: var(--color-primary);
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
 }
 
-.successTitle {
-  font-size: 1.5rem;
+.infoIcon svg,
+.statusIcon svg {
+  color: white;
+}
+
+.infoItem h3,
+.statusItem h3 {
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
+  color: white;
 }
 
-.successText {
-  color: var(--color-text-muted);
-  margin-bottom: 1.5rem;
+.infoItem p,
+.statusItem p {
+  font-size: 1.1rem;
+  color: #a0a9c0;
+  margin-bottom: 15px;
 }
 
-.sendAnother {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
-  font-weight: 500;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.sendAnother:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* Contact Info */
-.contactInfo {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 3rem;
-}
-
-.infoTitle {
-  font-size: 1.5rem;
+.statusInfo h3 {
+  font-size: 1.3rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 8px;
+  color: white;
 }
 
-.infoItems {
+.statusBadge {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.infoItem {
-  display: flex;
-  gap: 1rem;
-}
-
-.infoIcon {
-  color: var(--color-primary);
-}
-
-.infoLabel {
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #10b981;
   font-weight: 500;
-  margin-bottom: 0.25rem;
 }
 
-.infoValue {
-  color: var(--color-text-muted);
-  text-decoration: none;
-  transition: color 0.2s ease;
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
 }
 
-.infoValue:hover {
-  color: var(--color-primary);
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
 }
 
 .availability {
-  margin-top: auto;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
-.availabilityText {
-  color: var(--color-text-muted);
-  margin-bottom: 1rem;
+.availability p {
+  font-size: 1.1rem;
+  color: #a0a9c0;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
-.workingHours {
-  background-color: var(--color-bg-muted);
-  padding: 1rem;
-  border-radius: var(--radius);
+.availableHours {
+  background: rgba(79, 70, 229, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid rgba(79, 70, 229, 0.3);
+  display: inline-block;
+  min-width: 300px;
 }
 
-.workingHoursTitle {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+.availableHours h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #4f46e5;
 }
 
-.workingHoursText {
-  color: var(--color-text-muted);
+.availableHours p {
+  font-size: 1rem;
+  color: white;
+  margin: 0;
 }
 
-@media (min-width: 768px) {
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .container {
-    padding: 3rem 1.5rem;
+    padding: 100px 15px 40px;
   }
-
-  .formContainer {
-    padding: 2rem;
+  
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .header p {
+    font-size: 1.1rem;
+  }
+  
+  .infoGrid,
+  .statusGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .infoItem,
+  .statusItem {
+    padding: 20px;
+  }
+  
+  .availability {
+    padding: 30px 20px;
+  }
+  
+  .availableHours {
+    min-width: auto;
+    width: 100%;
   }
 }
 
-@media (min-width: 1024px) {
-  .content {
-    grid-template-columns: 1fr 1fr;
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .contactInfo h2,
+  .contactStatus h2,
+  .availability h2 {
+    font-size: 1.5rem;
   }
 }

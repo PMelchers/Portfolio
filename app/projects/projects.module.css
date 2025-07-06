@@ -1,53 +1,86 @@
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1rem;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  padding: 2rem 0;
 }
 
 .header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
+  color: #e2e8f0;
   margin-bottom: 1rem;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
-  color: var(--color-text-muted);
-  max-width: 32rem;
+  font-size: 1.125rem;
+  color: #cbd5e1;
+  max-width: 600px;
   margin: 0 auto;
 }
 
-.projectGrid {
+.projectsGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
 }
 
+/* Consistent Project Card Styling */
 .projectCard {
-  background-color: var(--color-bg);
-  border-radius: var(--radius);
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(59, 130, 246, 0.2);
   text-decoration: none;
   color: inherit;
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+.projectCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(59, 130, 246, 0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .projectCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+}
+
+.projectCard:hover::before {
+  opacity: 1;
 }
 
 .projectImageContainer {
   position: relative;
-  aspect-ratio: 16 / 9;
+  height: 200px;
+  overflow: hidden;
 }
 
 .projectImage {
@@ -61,63 +94,131 @@
 
 .projectInfo {
   padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  position: relative;
+  z-index: 1;
 }
 
 .projectTitle {
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  color: #e2e8f0;
 }
 
 .projectDescription {
-  color: var(--color-text-muted);
+  color: #94a3b8;
   margin-bottom: 1rem;
-  flex: 1;
+  line-height: 1.5;
 }
 
-.techTags {
+.projectTechnologies {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .techTag {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #60a5fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
   font-size: 0.75rem;
-  padding: 0.25rem 0.5rem;
-  background-color: var(--color-bg-muted);
-  border-radius: 9999px;
-}
-
-.viewProject {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--color-text-muted);
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.projectCard:hover .viewProject {
-  color: var(--color-primary);
+.techTag:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: #3b82f6;
+  transform: translateY(-1px);
 }
 
-@media (min-width: 768px) {
+/* Web-based Games Section */
+.gamesSection {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.3) 0%, rgba(15, 23, 42, 0.3) 100%);
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.gamesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent);
+  pointer-events: none;
+}
+
+.gamesSectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.gamesSectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(59, 130, 246, 0.2);
+}
+
+.gamesSectionSubtitle {
+  font-size: 1.125rem;
+  color: #94a3b8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.gamesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
   .container {
-    padding: 3rem 1.5rem;
+    padding: 1rem 0;
   }
-
-  .projectGrid {
-    grid-template-columns: repeat(2, 1fr);
+  
+  .title {
+    font-size: 2.5rem;
   }
-}
-
-@media (min-width: 1024px) {
-  .projectGrid {
-    grid-template-columns: repeat(3, 1fr);
+  
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .projectImageContainer {
+    height: 200px;
+  }
+  
+  .gamesSection {
+    display: none; /* Hide games on mobile */
+  }
+  
+  .gamesTitle {
+    font-size: 2rem;
+  }
+  
+  .gamesSubtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .gameContainer {
+    padding: 1rem;
+  }
+  
+  .sectionContainer {
+    padding: 0 1rem;
   }
 }

@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import AnimatedBackground from "./components/animated-background";
+import LoadingAnimation from "./components/loading-animation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,17 +22,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={inter.className}>
-        {/* Particle Background */}
+        {/* Loading Animation */}
+        <LoadingAnimation />
+        
+        {/* Animated Background */}
+        <AnimatedBackground />
+        
+        {/* Simple Particle Background */}
         <div className="particle-container">
-          {Array.from({ length: 100 }).map((_, index) => (
+          {Array.from({ length: 30 }).map((_, index) => (
             <div
               key={index}
               className="particle"
               style={{
-                top: `${Math.random() * 100}vh`,
-                left: `${Math.random() * 100}vw`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${5 + Math.random() * 5}s`,
+                top: `${(index * 17) % 100}vh`,
+                left: `${(index * 23) % 100}vw`,
+                animationDelay: `${index * 0.3}s`,
+                animationDuration: `${5 + (index % 3)}s`,
               }}
             ></div>
           ))}

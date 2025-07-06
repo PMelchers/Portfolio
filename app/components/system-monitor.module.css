@@ -1,0 +1,325 @@
+.systemMonitor {
+  background: var(--color-terminal);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-primary);
+  position: relative;
+  animation: monitorGlow 4s ease-in-out infinite;
+  width: 100%;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+@keyframes monitorGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+  }
+}
+
+.monitorHeader {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4ade80;
+  font-size: 0.875rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.monitorBody {
+  padding: 1.5rem;
+  height: 380px;
+  overflow-y: auto;
+  background: var(--color-terminal);
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.metric {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.metric:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.metricHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.metricIcon {
+  font-size: 1.25rem;
+}
+
+.metricLabel {
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.statusGood {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+}
+
+.statusWarning {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.statusCritical {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+}
+
+.statusWork {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+}
+
+.statusWorking {
+  background: linear-gradient(135deg, #60a5fa, #3b82f6);
+}
+
+.statusIdle {
+  background: linear-gradient(135deg, #6b7280, #4b5563);
+}
+
+.statusSection {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.statusMessage {
+  color: var(--color-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-align: center;
+  animation: pulse 2s infinite;
+}
+
+.working {
+  background: #22c55e;
+  animation: workingPulse 1s infinite;
+}
+
+.idle {
+  background: #6b7280;
+}
+
+@keyframes workingPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.processesSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+}
+
+.sectionTitle {
+  color: #ccc;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.processTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.processHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #888;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.processRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  color: #ccc;
+  font-size: 0.875rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.processRow:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.processName {
+  font-weight: 500;
+}
+
+.processCpu {
+  color: var(--color-primary);
+}
+
+.processMemory {
+  color: #fbbf24;
+}
+
+.monitorBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.monitorBody::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.monitorBody::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.monitorBody::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .systemMonitor {
+    height: 350px;
+  }
+  
+  .monitorBody {
+    height: 280px;
+    padding: 1rem;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metricValue {
+    font-size: 1.25rem;
+  }
+  
+  .processHeader,
+  .processRow {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+}

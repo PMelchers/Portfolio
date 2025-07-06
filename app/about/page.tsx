@@ -1,155 +1,150 @@
 import Image from "next/image"
+import { Mail, MapPin, Calendar, Code, Database, Server, Smartphone } from "lucide-react"
 import { Button } from "../components/ui/button"
+import ScrollAnimation from "../components/scroll-animation"
 import styles from "./about.module.css"
 
-export default function AboutPage() {
-  // Skills dataset
+export default function About() {
   const skills = [
-    { category: "Frontend", items: ["React", "Next.js", "TypeScript", "HTML/CSS", "Vue"] },
-    { category: "Backend", items: ["Node.js", ".NET Core", "Laravel", "Firebase", "PHP"] },
-    { category: "Database", items: ["MySQL", "Firebase"] },
-    { category: "Tools", items: ["Git", "Docker", "Vercel", "Figma"] },
-  ]
-
-  // Experience data
-  const experiences = [
-    {
-      title: "Engineer Support",
-      company: "Royal SMIT Transformers",
-      period: "2024 - 2025",
-      description:
-        "Assisted in the development of a web application for managing users. Gained experience in frontend technologies and agile development. Worked closely with the engineering team to understand user needs and translate them into technical requirements.",
-    },
-  ]
-
-  // Education data
-  const education = [
-    {
-      degree: "Software Engineering",
-      institution: "ROC Nijmegen",
-      period: "2023 - Now",
-      description: "Currently pursuing a degree in Software Engineering, focusing on web development and software design principles. Gained hands-on experience in various programming languages and frameworks.",
-    },
+    { name: "Frontend", icon: <Code className={styles.skillIcon} />, technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+    { name: "Backend", icon: <Server className={styles.skillIcon} />, technologies: ["Node.js", "Express", "Python", "REST APIs"] },
+    { name: "Database", icon: <Database className={styles.skillIcon} />, technologies: ["PostgreSQL", "MongoDB", "Redis", "GraphQL"] },
+    { name: "Mobile", icon: <Smartphone className={styles.skillIcon} />, technologies: ["React Native", "Flutter", "iOS", "Android"] },
   ]
 
   return (
     <div className={styles.container}>
-      {/* About Me Section */}
-      <section className={styles.aboutSection}>
-        <div className={styles.profileColumn}>
-          <div className={styles.profileImageContainer}>
-            <Image
-            src="/images/CV-Groot.jpg"
-            alt="Pim Melchers"
-            fill
-            sizes="(max-width: 768px) 100vw, (min-width: 768px) 50vw"
-            className={styles.profileImage}
-            priority
-          />
-          </div>
-          <div className={styles.profileInfo}>
-            <h1 className={styles.name}>Pim Melchers</h1>
-            <p className={styles.jobTitle}>Frontend Developer & Designer</p>
-            <Button asChild>
-              <a href="/CV/CV-Pim-2.pdf" download className={styles.downloadButton}>
-                <svg
-                  className={styles.downloadIcon}
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Resume
-              </a>
-            </Button>
-          </div>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <ScrollAnimation animation="fadeInLeft">
+            <div className={styles.profileSection}>
+              <div className={styles.profileImageContainer}>
+                <Image
+                  src="/images/CV-foto.jpg"
+                  alt="Pim Melchers"
+                  fill
+                  className={styles.profileImage}
+                  priority
+                />
+                <div className={styles.imageOverlay} />
+              </div>
+            </div>
+          </ScrollAnimation>
+          
+          <ScrollAnimation animation="fadeInRight" delay={200}>
+            <div className={styles.introSection}>
+              <h1 className={styles.title}>
+                <span className={styles.greeting}>console.log("Hello World!");</span>
+                <span className={styles.name}>I'm Pim Melchers</span>
+              </h1>
+              <p className={styles.subtitle}>
+                Full-Stack Developer & Digital Craftsman
+              </p>
+              <div className={styles.quickInfo}>
+                <div className={styles.infoItem}>
+                  <MapPin className={styles.infoIcon} />
+                  <span>Netherlands</span>
+                </div>
+                <div className={styles.infoItem}>
+                  <Calendar className={styles.infoIcon} />
+                  <span>Available for Projects</span>
+                </div>
+                <div className={styles.infoItem}>
+                  <Mail className={styles.infoIcon} />
+                  <span>pim.melchers@example.com</span>
+                </div>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
+      </section>
 
-        <div className={styles.bioColumn}>
-          <h2 className={styles.sectionTitle}>About Me</h2>
-          <div className={styles.bioText}>
-            <p>
-              Hello! I'm Pim Melchers, a passionate frontend developer with a keen eye for design and a love for
-              creating engaging user experiences. I specialize in building responsive and interactive web applications
-            </p>
-            <p>
-              I have a strong foundation in modern web technologies, including React, Next.js, and TypeScript. My
-              journey in software development has been driven by a desire to solve real-world problems and make a
-              positive impact through technology.
-            </p>
-            <p>
-              I thrive in collaborative environments and enjoy working closely with designers and developers to bring
-              ideas to life. My goal is to create seamless and intuitive interfaces that enhance user satisfaction and
-              drive engagement.
-            </p>
-            <p>
-              When I'm not coding, you can find me playing volleybal and play games. I'm always eager to learn and grow, and I'm excited about the opportunities
-              that lie ahead in my career.
-            </p>
-          </div>
+      {/* About Content */}
+      <section className={styles.aboutContent}>
+        <div className={styles.sectionContainer}>
+          <ScrollAnimation animation="fadeInUp">
+            <div className={styles.storySection}>
+              <h2 className={styles.sectionTitle}>
+                <span className={styles.prompt}>$</span> cat about-me.txt
+              </h2>
+              <div className={styles.storyContent}>
+                <p className={styles.storyText}>
+                  Passionate developer with a love for creating innovative solutions that bridge the gap between 
+                  design and functionality. I specialize in building scalable web applications and mobile solutions 
+                  that deliver exceptional user experiences.
+                </p>
+                <p className={styles.storyText}>
+                  My journey in tech started with curiosity about how things work, which led me to explore 
+                  various programming languages and frameworks. I'm constantly learning and adapting to new 
+                  technologies to stay at the forefront of development.
+                </p>
+                <p className={styles.storyText}>
+                  When I'm not coding, you can find me exploring new tech trends, contributing to open-source 
+                  projects, or sharing knowledge with the developer community.
+                </p>
+              </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </section>
 
       {/* Skills Section */}
       <section className={styles.skillsSection}>
-        <h2 className={styles.sectionTitle}>Skills & Expertise</h2>
-        <div className={styles.skillsGrid}>
-          {skills.map((skillGroup) => (
-            <div key={skillGroup.category} className={styles.skillCard}>
-              <h3 className={styles.skillCategory}>{skillGroup.category}</h3>
-              <ul className={styles.skillList}>
-                {skillGroup.items.map((skill) => (
-                  <li key={skill} className={styles.skillItem}>
-                    <span className={styles.skillDot}></span>
-                    <span>{skill}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <div className={styles.sectionContainer}>
+          <ScrollAnimation animation="fadeInUp">
+            <h2 className={styles.sectionTitle}>
+              <span className={styles.prompt}>$</span> ls -la /skills/
+            </h2>
+          </ScrollAnimation>
+          
+          <div className={styles.skillsGrid}>
+            {skills.map((skill, index) => (
+              <ScrollAnimation key={skill.name} animation="fadeInUp" delay={index * 100}>
+                <div className={styles.skillCard}>
+                  <div className={styles.skillHeader}>
+                    {skill.icon}
+                    <h3 className={styles.skillTitle}>{skill.name}</h3>
+                  </div>
+                  <div className={styles.skillTechnologies}>
+                    {skill.technologies.map((tech) => (
+                      <span key={tech} className={styles.techTag}>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </ScrollAnimation>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section className={styles.experienceSection}>
-        <h2 className={styles.sectionTitle}>Work Experience</h2>
-        <div className={styles.timelineContainer}>
-          {experiences.map((exp, index) => (
-            <div key={index} className={styles.timelineItem}>
-              <div className={styles.timelineHeader}>
-                <h3 className={styles.timelineTitle}>{exp.title}</h3>
-                <span className={styles.timelinePeriod}>{exp.period}</span>
+      {/* CTA Section */}
+      <section className={styles.ctaSection}>
+        <div className={styles.sectionContainer}>
+          <ScrollAnimation animation="fadeInUp">
+            <div className={styles.ctaContent}>
+              <h2 className={styles.ctaTitle}>
+                <span className={styles.prompt}>$</span> let's collaborate();
+              </h2>
+              <p className={styles.ctaSubtitle}>
+                Ready to bring your ideas to life? Let's build something amazing together.
+              </p>
+              <div className={styles.ctaButtons}>
+                <Button asChild size="lg" className={styles.primaryButton}>
+                  <a href="mailto:pim.melchers@example.com">
+                    Get In Touch
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg">
+                  <a href="/projects">
+                    View My Work
+                  </a>
+                </Button>
               </div>
-              <p className={styles.timelineCompany}>{exp.company}</p>
-              <p className={styles.timelineDescription}>{exp.description}</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section className={styles.educationSection}>
-        <h2 className={styles.sectionTitle}>Education</h2>
-        <div className={styles.timelineContainer}>
-          {education.map((edu, index) => (
-            <div key={index} className={styles.timelineItem}>
-              <div className={styles.timelineHeader}>
-                <h3 className={styles.timelineTitle}>{edu.degree}</h3>
-                <span className={styles.timelinePeriod}>{edu.period}</span>
-              </div>
-              <p className={styles.timelineCompany}>{edu.institution}</p>
-              <p className={styles.timelineDescription}>{edu.description}</p>
-            </div>
-          ))}
+          </ScrollAnimation>
         </div>
       </section>
     </div>

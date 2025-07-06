@@ -1,0 +1,252 @@
+.fileTree {
+  background: var(--color-terminal);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-primary);
+  position: relative;
+  animation: fileTreeGlow 5s ease-in-out infinite;
+  width: 100%;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+@keyframes fileTreeGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.4);
+  }
+}
+
+.header {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.headerTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #22c55e;
+  font-size: 0.875rem;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.body {
+  display: flex;
+  height: 380px;
+  background: var(--color-terminal);
+}
+
+.treeContainer {
+  width: 50%;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+}
+
+.treeHeader {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.treeTitle {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.treeContent {
+  padding: 0.5rem 0;
+}
+
+.treeItem {
+  padding: 0.25rem 0;
+}
+
+.folderItem, .fileItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+}
+
+.folderItem:hover, .fileItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fileItem.active {
+  background: rgba(59, 130, 246, 0.2);
+  border-left: 3px solid #3b82f6;
+}
+
+.folderIcon, .fileIcon {
+  font-size: 0.875rem;
+  width: 16px;
+  text-align: center;
+}
+
+.folderName, .fileName {
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.folderContent {
+  margin-left: 0.5rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.codePreview {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.codeHeader {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.codeTitle {
+  color: #60a5fa;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.codeContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.5rem 0;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.codeLine {
+  display: flex;
+  align-items: center;
+  padding: 0.125rem 0;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lineNumber {
+  width: 30px;
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.75rem;
+  padding-right: 0.5rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 0.5rem;
+}
+
+.lineContent {
+  color: #e2e8f0;
+  flex: 1;
+  white-space: pre;
+}
+
+.cursor {
+  color: #4ade80;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.treeContainer::-webkit-scrollbar,
+.codeContent::-webkit-scrollbar {
+  width: 6px;
+}
+
+.treeContainer::-webkit-scrollbar-track,
+.codeContent::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.treeContainer::-webkit-scrollbar-thumb,
+.codeContent::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 3px;
+}
+
+.treeContainer::-webkit-scrollbar-thumb:hover,
+.codeContent::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .fileTree {
+    height: 350px;
+  }
+  
+  .body {
+    flex-direction: column;
+    height: 280px;
+  }
+  
+  .treeContainer {
+    width: 100%;
+    height: 50%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .codePreview {
+    width: 100%;
+    height: 50%;
+  }
+}

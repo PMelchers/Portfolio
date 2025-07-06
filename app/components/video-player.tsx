@@ -26,6 +26,7 @@ export function VideoPlayer({ videoUrl, autoplay = false }: VideoPlayerProps) {
         autoPlay={autoplay}
         muted
         preload="metadata"
+        style={{ filter: 'brightness(1.2) contrast(1.1) saturate(1.3)' }}
       >
         <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.

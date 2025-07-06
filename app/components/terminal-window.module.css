@@ -1,0 +1,141 @@
+.terminalWindow {
+  background: var(--color-terminal);
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-primary);
+  position: relative;
+  animation: terminalGlow 4s ease-in-out infinite;
+  width: 100%;
+  height: 450px;
+  max-height: 450px;
+  flex-shrink: 0;
+}
+
+@keyframes terminalGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.4);
+  }
+}
+
+.terminalHeader {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.terminalButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.terminalButton {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.close {
+  background: #ff5f57;
+}
+
+.minimize {
+  background: #ffbd2e;
+}
+
+.maximize {
+  background: #28ca42;
+}
+
+.terminalTitle {
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.terminalBody {
+  padding: 1rem;
+  height: 380px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: var(--color-terminal);
+  scroll-behavior: smooth;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-primary);
+  position: relative;
+}
+
+.terminalContent {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminalLine {
+  margin-bottom: 0.25rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  position: relative;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cursor {
+  color: #4ade80;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+.terminalBody::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminalBody::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.terminalBody::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.terminalBody::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .terminalWindow {
+    height: 300px;
+    max-width: 100%;
+  }
+  
+  .terminalBody {
+    height: 240px;
+    padding: 0.75rem;
+  }
+  
+  .terminalLine {
+    font-size: 0.75rem;
+  }
+}

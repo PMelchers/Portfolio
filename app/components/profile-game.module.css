@@ -1,0 +1,240 @@
+.profileGame {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  border: 1px solid var(--color-primary);
+  position: relative;
+  animation: gameGlow 4s ease-in-out infinite;
+  width: 100%;
+  height: 500px;
+  flex-shrink: 0;
+}
+
+@keyframes gameGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  }
+}
+
+.gameHeader {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gameTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ccc;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.gameIcon {
+  font-size: 1rem;
+}
+
+.gameScore {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.gameArea {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  overflow: hidden;
+}
+
+.fallingObject {
+  position: absolute;
+  font-size: 1.5rem;
+  z-index: 2;
+  animation: fall 0.1s linear;
+  transition: all 0.1s ease;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+  }
+}
+
+.player {
+  position: absolute;
+  bottom: 10%;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: left 0.2s ease;
+  animation: playerBounce 2s ease-in-out infinite;
+}
+
+@keyframes playerBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}
+
+.playerImage {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  object-fit: cover;
+}
+
+.gameControls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 4;
+}
+
+.startButton {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+}
+
+.stopButton {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.stopButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.controlsInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.instructions {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  backdrop-filter: blur(10px);
+}
+
+.mobileControls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 4;
+}
+
+.mobileButton {
+  background: rgba(59, 130, 246, 0.2);
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileButton:hover,
+.mobileButton:active {
+  background: rgba(59, 130, 246, 0.4);
+  transform: scale(1.1);
+}
+
+.gameInstructions {
+  padding: 1rem;
+  background: rgba(59, 130, 246, 0.05);
+  border-top: 1px solid rgba(59, 130, 246, 0.2);
+  text-align: center;
+}
+
+.gameInstructions p {
+  margin: 0.25rem 0;
+  color: #cbd5e1;
+  font-size: 0.875rem;
+}
+
+.gameInstructions p:first-child {
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .profileGame {
+    height: 400px;
+  }
+  
+  .gameArea {
+    height: 300px;
+  }
+  
+  .playerImage {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .fallingObject {
+    font-size: 1.2rem;
+  }
+  
+  .mobileButton {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .instructions {
+    display: none;
+  }
+}
